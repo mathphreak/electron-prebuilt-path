@@ -2,20 +2,29 @@ addons:
   apt:
     packages:
       - xvfb
+before_install:
+  - npm install -g npm@3
 install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
   - npm install
 os:
-- linux
-- osx
+  - linux
+  - osx
 language: node_js
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
 node_js:
-- '4'
-- '5'
-- '6'
+  - '7'
+  - '6'
+  - '4'
 branches:
-  only:
-  - master
+  except:
+    - /^v\d+\.\d+\.\d+$/
 before_script:
-- npm install -g npm@3
+  - npm prune
+after_success:
+  - npm run semantic-release
