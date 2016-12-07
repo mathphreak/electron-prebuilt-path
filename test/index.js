@@ -1,4 +1,4 @@
-/* eslint "unicorn/no-process-exit": 0 */
+/* eslint "unicorn/no-process-exit": 0, "import/no-unresolved": 0 */
 var path = require('path');
 var fs = require('fs');
 var electronPath = require('electron-prebuilt-path');
