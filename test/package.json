@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "npm uninstall electron electron-prebuilt-path",
-    "test": "node getPath.js && node index.js && electron index.js && rm path.txt"
+    "test": "node getPath.js && node index.js && electron index.js"
   },
   "dependencies": {
     "electron": "^1.4.10",
