@@ -1,13 +1,26 @@
 {
+  "name": "electron-prebuilt-path-test",
+  "description": "electron-prebuilt-path test",
+  "author": "Matt Horn",
+  "version": "0.0.0",
   "private": true,
-  "main": "index.js",
+  "main": "test-in-electron.js",
   "license": "MIT",
   "scripts": {
-    "clean": "npm uninstall electron electron-prebuilt-path",
-    "test": "node getPath.js && node index.js && electron index.js"
+    "test": "node run-tests.js",
+    "pack": "build --dir --publish never",
+    "electron": "electron"
   },
   "dependencies": {
-    "electron": "^1.4.10",
-    "electron-prebuilt-path": ".."
+    "electron-prebuilt-path": "..",
+    "nightmare": "^2.8.1",
+    "shelljs": "^0.7.5"
+  },
+  "devDependencies": {
+    "electron-builder": "^10.6.1"
+  },
+  "build": {
+    "appId": "tech.matthorn.electron-prebuilt-path-test",
+    "category": "public.app-category.utilities"
   }
 }

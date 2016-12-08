@@ -1,4 +1,3 @@
-/* eslint "unicorn/filename-case": 0 */
 var electronPath = require('electron');
 
 if (typeof electronPath === 'string') {
