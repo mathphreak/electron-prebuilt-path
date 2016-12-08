@@ -1,4 +1,5 @@
 var shell = require('shelljs');
+var isCI = require('is-ci');
 
 shell.set('-e');
 
@@ -25,11 +26,13 @@ function awaitElectron() {
   cleanupElectron();
 }
 
-shell.echo('\n*** Reinstalling from scratch\n');
-if (shell.test('-d', 'node_modules')) {
-  shell.rm('-rf', 'node_modules');
+if (!isCI) {
+  shell.echo('\n*** Reinstalling from scratch\n');
+  if (shell.test('-d', 'node_modules')) {
+    shell.rm('-rf', 'node_modules');
+  }
+  shell.exec('npm install');
 }
-shell.exec('npm install');
 
 shell.echo('\n*** Running simple tests\n');
 if (shell.test('-f', 'path.txt')) {

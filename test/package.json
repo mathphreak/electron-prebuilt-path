@@ -17,7 +17,8 @@
     "shelljs": "^0.7.5"
   },
   "devDependencies": {
-    "electron-builder": "^10.6.1"
+    "electron-builder": "^10.6.1",
+    "is-ci": "^1.0.10"
   },
   "build": {
     "appId": "tech.matthorn.electron-prebuilt-path-test",
