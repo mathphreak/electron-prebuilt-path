@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "pretest": "cd test && npm install",
     "test": "xo && cd test && npm test",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },

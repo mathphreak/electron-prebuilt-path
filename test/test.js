@@ -1,4 +1,3 @@
-/* eslint "import/no-unresolved": 0 */
 var path = require('path');
 var fs = require('fs');
 var electronPath = require('electron-prebuilt-path');
