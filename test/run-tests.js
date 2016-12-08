@@ -26,11 +26,15 @@ function awaitElectron() {
 }
 
 shell.echo('\n*** Reinstalling from scratch\n');
-shell.rm('-rf', 'node_modules');
+if (shell.test('-d', 'node_modules')) {
+  shell.rm('-rf', 'node_modules');
+}
 shell.exec('npm install');
 
 shell.echo('\n*** Running simple tests\n');
-shell.rm('path.txt');
+if (shell.test('-f', 'path.txt')) {
+  shell.rm('path.txt');
+}
 shell.exec('node get-path.js');
 shell.exec('node test.js');
 shell.exec('npm run electron -- test-in-electron.js');
